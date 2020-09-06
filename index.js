@@ -33,7 +33,7 @@ exports.YTUpload = functions.storage.object().onFinalize(async (object) => { //o
       //Visit "Google Developers Console" and create an OAuth2 Key to obtain these details
       const oauth2 = new google.auth.OAuth2("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "YOUR_REDIRECT_URIS[0]");
       oauth2.setCredentials({
-          refresh_token: "YOUR_REFRESH_TOKE"
+          refresh_token: "YOUR_REFRESH_TOKEN"
       })
       google.options({auth: oauth2});
       console.log('passed authentication phase')
@@ -44,11 +44,11 @@ exports.YTUpload = functions.storage.object().onFinalize(async (object) => { //o
           notifySubscribers: false,
           requestBody: {
             snippet: {
-              title: 'Node.js YouTube Upload Test',
-              description: 'Testing YouTube upload via Google APIs Node.js Client',
+              title: 'YOUR_VIDEO_TITLE',
+              description: 'YOUR_VIDEO_DESCRIPTION',
             },
             status: {
-              privacyStatus: 'private',
+              privacyStatus: 'YOUR_VIDEO_PRIVACY_STATUS',
             },
           },
           media: {
